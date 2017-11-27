@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<title th:text ="'MTECHBlogs - '+${post.title}"></title>
+<head th:replace="/header :: common-header"/>
+  <body>
+  	 <nav th:replace="/nav :: common-navi"></nav>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+          <!-- Title -->
+          <h1 class="mt-4" th:text ="${post.title}"></h1>
+          <!-- Author -->
+          <p class="lead">
+            by
+            <a href="#" th:text ="${post.author.Firstname}+' '+${post.author.Lastname}"></a>
+          </p>
+          <hr/>
+          <!-- Date/Time -->
+          <p th:text="'Posted on '+${post.date}"></p>
+          <hr/>
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" th:src="'../images/'+${post.imageUrl}" alt="/images/maxresdefault.jpg"></img>
+          <hr/>
+          <!-- Post Content -->
+		  <span th:utext="${post.content}"></span>
+          <hr/>
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+    		<div id="disqus_thread"></div>
+            </div>
+          </div>
+        </div>
+         <div class="col-md-4">
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..."/>
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Personal</a>
+                    </li>
+                    <li>
+                      <a href="#">News</a>
+                    </li>
+                    <li>
+                      <a href="#">Technologies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Useful Links</h5>
+            <div class="card-body">
+              <a href ="https://www.w3schools.com/">W3Schools Tutorials</a>
+              <br/>
+              <a href ="https://docs.oracle.com/javase/7/docs/api/">Java Documentation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+   
+	<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://fblogs-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </body>
+
+</html>

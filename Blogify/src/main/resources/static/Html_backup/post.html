@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text ="'Blogify - '+${post.title}"></title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="css/customcss.css" th:href="@{/css/customcss.css}" />
+    <link rel="stylesheet" type="text/css" href="#" th:href="@{/css/trix.css}"/>
+  	<script type="text/javascript" src="#" th:src="@{/js/trix.js}"></script>
+</head>
+<body>
+<h1>Blogify</h1>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{logout}" action="#" method="post">
+<input type="submit" value="Sign Out"></input>
+</form>
+<h1 th:text ="${post.title}"></h1>
+<p>Posted: </p><p th:text="${post.date}"/>
+<p class="col" th:text="'By: '+${author.Firstname}+' '+${author.Lastname}"/>
+<img src ="#" th:src="${postImage}"></img>
+<!-- <div th:inline="text">[[${post.content}]]</div> -->
+<span th:utext="${post.content}">Description</span>
+<br></br>
+<div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/
+var disqus_config = function () {
+this.page.url = "/post/";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "${post.id}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://fblogs-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<br></br>
+<a class = "btn btn-success" th:href="@{/home}">Back</a>
+<br></br>
+</body>
+</html>

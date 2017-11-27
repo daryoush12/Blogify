@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>MTECHBlogs - Home</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Blogify</h1>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{logout}" action="#" method="post">
+<input type="submit" value="Sign Out"></input>
+</form>
+<table class = "table table-stripped">
+ <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+  </tr>
+<tr th:each ="post : ${posts}">
+<td th:text ="${post.title}"></td>
+<td th:text ="${post.desc}"></td>
+<td th:text ="${post.date}"></td>
+<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${post.id})}">Delete</a></td>
+<td><a class="btn btn-success" th:href="@{/post/{id}(id=${post.id})}">Read</a></td>
+</tr>
+</table>
+<br></br>
+<a class = "btn btn-success" th:href="@{/add}">Write Article</a>
+<br></br>
+</body>
+</html>

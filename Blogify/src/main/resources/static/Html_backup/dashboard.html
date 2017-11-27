@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+  <head th:replace="/header :: common-header" />
+  <body>
+    <!-- Navigation -->
+     <nav th:replace="/nav :: common-navi"></nav>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+          <h1 class="my-4">Profile
+            <small>common</small>
+          </h1>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
+      <li><a href="#profile" data-toggle="tab">Password</a></li>
+    </ul>
+    <br/>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+        <form id="tab">
+            <label>Username</label>
+            <input type="text" value="jsmith" class="input-xlarge"/>
+            <br/>
+            <label>First Name</label>
+            <input type="text" value="John" class="input-xlarge"/>
+              <br/>
+            <label>Last Name</label>
+            <input type="text" value="Smith" class="input-xlarge"/>
+              <br/>
+            <label>Email</label>
+            <input type="text" value="jsmith@yourcompany.com" class="input-xlarge"/>
+          	<div>
+        	    <button class="btn btn-primary">Update</button>
+        	</div>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="profile">
+    	<form id="tab2">
+        	<label>New Password</label>
+        	<input type="password" class="input-xlarge"/>
+        	<div>
+        	    <button class="btn btn-primary">Update</button>
+        	</div>
+    	</form>
+      </div>
+  </div>
+  </div>
+        </div>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..."/>
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Web Design</a>
+                    </li>
+                    <li>
+                      <a href="#">HTML</a>
+                    </li>
+                    <li>
+                      <a href="#">Freebies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="#">CSS</a>
+                    </li>
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
+        </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
